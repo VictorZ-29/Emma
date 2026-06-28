@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>le français · pour Emma</title>
+  <meta name="description" content="A gentle, beautiful path to learning French — built for Emma." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap section--tight">
+      <div class="hero__panel ruled">
+        <p class="eyebrow">Apprendre le français · à ton rythme</p>
+        <h1 class="hero__hello">Bonjour, Emma<span class="dot">.</span></h1>
+        <p class="hero__sub">Welcome to your French. Short lessons, real phrases you can actually use, and a 🔊 button on every sentence so you can hear how it really sounds. Two years of school French is plenty to build on — let’s make it click.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" id="start-cta" href="pronunciation.html">Start here →</a>
+          <a class="btn btn--ghost" href="#parcours">See the path</a>
+        </div>
+        <div class="stats" id="hero-stats">
+          <div class="stat"><span class="stat__icon">🔥</span><div><div class="stat__num" id="stat-streak">0</div><div class="stat__label" id="stat-streak-label">day streak</div></div></div>
+          <div class="stat"><span class="stat__icon">✓</span><div><div class="stat__num" id="stat-done">0/3</div><div class="stat__label">lessons done</div></div></div>
+          <div class="stat"><span class="stat__icon">🇫🇷</span><div><div class="stat__num">A1</div><div class="stat__label">starting level</div></div></div>
+        </div>
+      </div>
+
+      <div class="note-from">
+        <p>Salut Emma 👋</p>
+        <p>I made this just for you. Don’t try to do it all at once — one little lesson, a handful of flashcards, and you’ll be ordering coffee in Paris before you know it. Where a sound is tricky, tap the speaker and you’ll hear it properly.</p>
+        <p class="note-from__sign">— V</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap stack-lg">
+    <!-- Phrase of the day -->
+    <section class="section--tight">
+      <div class="phrase-day" id="phrase-day"></div>
+    </section>
+
+    <!-- The path -->
+    <section id="parcours" class="section--tight">
+      <p class="eyebrow">Le parcours · the path</p>
+      <h2>Your way through French</h2>
+      <p class="lead prose">Work from the top down — each lesson builds on the one before. The first three are ready now; the rest are on their way.</p>
+      <div id="sommaire"></div>
+    </section>
+
+    <!-- Vocabulary themes -->
+    <section class="section--tight">
+      <p class="eyebrow">Le vocabulaire · words by theme</p>
+      <h2>Build words in useful sets</h2>
+      <p class="lead prose">Flip-cards with audio, grouped the way you’ll actually meet them — at the table, with family, out and about.</p>
+      <div id="themes"></div>
+    </section>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/shell.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/components.js"></script>
+</body>
+</html>
