@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sounds & Pronunciation · le français pour Emma</title>
+  <title>How French really sounds · le français pour Emma</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
@@ -13,117 +13,191 @@
   <div id="site-header"></div>
 
   <main class="wrap prose">
-    <p class="crumb"><a href="index.html">Accueil</a> › Sounds & Pronunciation</p>
+    <p class="crumb"><a href="index.html">Accueil</a> › How French really sounds</p>
     <div class="module-head">
       <span class="module-head__num">Leçon 01</span>
-      <h1>Sounds & Pronunciation</h1>
-      <p class="lead">Good news first: French spelling is far more consistent than English. Learn a handful of patterns and you can read almost any word aloud correctly — even ones you’ve never seen.</p>
+      <h1>How French really sounds</h1>
+      <p class="lead">You can already read French and pronounce it fine. The hard part is the other direction — understanding it when someone fires it back at full speed. This lesson is about your <em>ear</em>: why fast French sounds like one long blur, and how to turn it back into words (and sound more natural yourself).</p>
     </div>
 
     <div class="callout callout--note">
       <span class="callout__icon">📌</span>
       <div class="callout__body">
-        <p class="callout__title">The big idea</p>
-        <p class="mb-0">English makes you memorise “though, through, tough, cough”. French doesn’t do that to you. Once a letter combination has a sound, it keeps it. So this lesson is mostly a list of patterns — not a list of exceptions.</p>
+        <p class="callout__title">The one idea</p>
+        <p class="mb-0">Spoken French isn’t read word by word — it’s streamed. Words link together, the rhythm stays flat, and whole sounds get swallowed. That’s not sloppiness; it’s the rules. Learn the patterns and the blur snaps back into words.</p>
       </div>
     </div>
 
-    <h2>Vowel combinations</h2>
-    <p>These are the ones that trip up English speakers, because the letters look familiar but sound different. Tap 🔊 to hear each example.</p>
+    <h2>Listen to real speed first</h2>
+    <p>Play the whole thing once — it’ll sound fast. Then go line by line and say each one back (shadowing). After that, the notes show you exactly what made it hard to catch.</p>
+    <div data-dialogue="real_sounds"></div>
+
+    <h2>1 · Words run together (liaison)</h2>
+    <p>This is the number-one reason fast French is hard to chop into words. A normally-silent final consonant wakes up and links onto the next word when it starts with a vowel — so two words become one sound.</p>
     <div class="tbl-wrap">
       <table class="fr-tbl">
-        <thead><tr><th>Spelling</th><th>Sounds like</th><th>Example</th><th></th></tr></thead>
+        <thead><tr><th>Written</th><th>Links as</th><th></th></tr></thead>
         <tbody>
-          <tr><td class="col-fr">ou</td><td>“oo” in food <span class="col-ipa">/u/</span></td><td class="col-fr">bonjour</td><td><button class="audio-btn" data-speak="bonjour"></button></td></tr>
-          <tr><td class="col-fr">u</td><td>tight “ee” with rounded lips <span class="col-ipa">/y/</span></td><td class="col-fr">tu, rue</td><td><button class="audio-btn" data-speak="tu, la rue"></button></td></tr>
-          <tr><td class="col-fr">oi</td><td>“wa” <span class="col-ipa">/wa/</span></td><td class="col-fr">moi, voilà</td><td><button class="audio-btn" data-speak="moi, voilà"></button></td></tr>
-          <tr><td class="col-fr">au · eau</td><td>“oh” <span class="col-ipa">/o/</span></td><td class="col-fr">eau, beau</td><td><button class="audio-btn" data-speak="l'eau, beau"></button></td></tr>
-          <tr><td class="col-fr">ai · ei</td><td>“eh” <span class="col-ipa">/ɛ/</span></td><td class="col-fr">maison, neige</td><td><button class="audio-btn" data-speak="la maison, la neige"></button></td></tr>
-          <tr><td class="col-fr">eu</td><td>“uh” with rounded lips <span class="col-ipa">/ø/</span></td><td class="col-fr">deux, bleu</td><td><button class="audio-btn" data-speak="deux, bleu"></button></td></tr>
-          <tr><td class="col-fr">é</td><td>“ay” (clipped) <span class="col-ipa">/e/</span></td><td class="col-fr">café, été</td><td><button class="audio-btn" data-speak="le café, l'été"></button></td></tr>
-          <tr><td class="col-fr">è · ê</td><td>“eh” (open) <span class="col-ipa">/ɛ/</span></td><td class="col-fr">mère, tête</td><td><button class="audio-btn" data-speak="la mère, la tête"></button></td></tr>
+          <tr><td class="col-fr">vous avez</td><td>vou-<strong>z</strong>-avez</td><td><button class="audio-btn" data-speak="vous avez"></button></td></tr>
+          <tr><td class="col-fr">les amis</td><td>lè-<strong>z</strong>-ami</td><td><button class="audio-btn" data-speak="les amis"></button></td></tr>
+          <tr><td class="col-fr">un ami</td><td>un-<strong>n</strong>-ami</td><td><button class="audio-btn" data-speak="un ami"></button></td></tr>
+          <tr><td class="col-fr">c’est un ami</td><td>sè-<strong>t</strong>-un-<strong>n</strong>-ami</td><td><button class="audio-btn" data-speak="c’est un ami"></button></td></tr>
+          <tr><td class="col-fr">on y va</td><td>on-<strong>n</strong>-i-va</td><td><button class="audio-btn" data-speak="on y va"></button></td></tr>
+          <tr><td class="col-fr">comment allez-vous</td><td>commen-<strong>t</strong>-allez-vous</td><td><button class="audio-btn" data-speak="comment allez-vous"></button></td></tr>
         </tbody>
       </table>
+    </div>
+    <div class="callout callout--tip">
+      <span class="callout__icon">💡</span>
+      <div class="callout__body">
+        <p class="callout__title">Why you can’t find the gaps</p>
+        <p class="mb-0">Liaison glues the end of one word to the start of the next, so the spaces you see on the page aren’t there in the sound. Your ear has to learn to put them back — that’s most of the “they speak so fast” feeling.</p>
+      </div>
+    </div>
+
+    <h2>2 · The rhythm is flat — the lift is at the end</h2>
+    <p>English punches one syllable and rushes the rest (im-<strong>POR</strong>-tant). French does the opposite: every syllable gets about the same length, with only a gentle rise on the <em>last</em> syllable of the group. Even it out and you instantly sound less English.</p>
+    <div class="phrase">
+      <div class="phrase__fr">important <button class="audio-btn" data-speak="important"></button></div>
+      <p class="phrase__en">“im-por-tant” — three even beats, the tiniest lift on <em>-tant</em>. No heavy stress in the middle.</p>
+    </div>
+    <div class="phrase">
+      <div class="phrase__fr">la possibilité <button class="audio-btn" data-speak="la possibilité"></button></div>
+      <p class="phrase__en">Five even syllables, rising only at the very end.</p>
+    </div>
+    <div class="phrase">
+      <div class="phrase__fr">On va au restaurant. <button class="audio-btn" data-speak="On va au restaurant."></button></div>
+      <p class="phrase__en">The whole phrase stays level and lifts on the final syllable — <span class="fr">-rant</span>.</p>
+    </div>
+    <div class="callout callout--tip">
+      <span class="callout__icon">💡</span>
+      <div class="callout__body">
+        <p class="callout__title">The quickest accent fix</p>
+        <p class="mb-0">Stop stressing words the English way. Keep every syllable even and let only the end of the phrase rise. Flat + lift-at-the-end = French.</p>
+      </div>
+    </div>
+
+    <h2>3 · French swallows sounds</h2>
+    <p>In real speech, common little words get crushed down. You don’t need to <em>say</em> these — but if you don’t <em>recognise</em> them, fast French turns to mush. (The 🔊 plays the proper full form so you can match it up.)</p>
+    <div class="tbl-wrap">
+      <table class="fr-tbl">
+        <thead><tr><th>You’ll hear</th><th>It’s really</th><th>Meaning</th><th></th></tr></thead>
+        <tbody>
+          <tr><td class="col-fr">chuis</td><td class="col-fr">je suis</td><td>I’m</td><td><button class="audio-btn" data-speak="je suis"></button></td></tr>
+          <tr><td class="col-fr">t’es</td><td class="col-fr">tu es</td><td>you’re</td><td><button class="audio-btn" data-speak="tu es"></button></td></tr>
+          <tr><td class="col-fr">t’as</td><td class="col-fr">tu as</td><td>you’ve got</td><td><button class="audio-btn" data-speak="tu as"></button></td></tr>
+          <tr><td class="col-fr">y’a</td><td class="col-fr">il y a</td><td>there is / are</td><td><button class="audio-btn" data-speak="il y a"></button></td></tr>
+          <tr><td class="col-fr">i’</td><td class="col-fr">il</td><td>he (i’ vient = il vient)</td><td><button class="audio-btn" data-speak="il vient"></button></td></tr>
+          <tr><td class="col-fr">chais pas</td><td class="col-fr">je (ne) sais pas</td><td>dunno</td><td><button class="audio-btn" data-speak="je sais pas"></button></td></tr>
+          <tr><td class="col-fr">keske…</td><td class="col-fr">qu’est-ce que…</td><td>what… (question)</td><td><button class="audio-btn" data-speak="qu’est-ce que tu fais"></button></td></tr>
+          <tr><td class="col-fr">faut</td><td class="col-fr">il faut</td><td>you’ve gotta</td><td><button class="audio-btn" data-speak="il faut"></button></td></tr>
+          <tr><td class="col-fr">pasque</td><td class="col-fr">parce que</td><td>because</td><td><button class="audio-btn" data-speak="parce que"></button></td></tr>
+          <tr><td class="col-fr">ptêt</td><td class="col-fr">peut-être</td><td>maybe</td><td><button class="audio-btn" data-speak="peut-être"></button></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>4 · The “ne” disappears</h2>
+    <p>You learned negation as <span class="fr">ne … pas</span>. In casual speech the <span class="fr">ne</span> is simply dropped — you’ll see it in writing, but rarely hear it. Train your ear to not wait for it.</p>
+    <div class="phrase">
+      <div class="phrase__fr">je sais pas <button class="audio-btn" data-speak="je sais pas"></button></div>
+      <p class="phrase__en">Spoken form of <span class="fr">je ne sais pas</span> — “I don’t know”.</p>
+    </div>
+    <div class="phrase">
+      <div class="phrase__fr">c’est pas grave <button class="audio-btn" data-speak="c’est pas grave"></button></div>
+      <p class="phrase__en"><span class="fr">ce n’est pas grave</span> — “it’s no big deal”.</p>
+    </div>
+    <div class="phrase">
+      <div class="phrase__fr">j’ai pas faim <button class="audio-btn" data-speak="j’ai pas faim"></button></div>
+      <p class="phrase__en"><span class="fr">je n’ai pas faim</span> — “I’m not hungry”.</p>
+    </div>
+    <div class="callout callout--warn">
+      <span class="callout__icon">⚠️</span>
+      <div class="callout__body">
+        <p class="callout__title">For the ear, and for speaking</p>
+        <p class="mb-0">Drop the <span class="fr">ne</span> when you’re chatting and you’ll sound natural. But when you <em>write</em>, put it back: <span class="fr">je ne sais pas</span>, <span class="fr">ce n’est pas grave</span>.</p>
+      </div>
+    </div>
+
+    <h2>5 · Asking with your voice</h2>
+    <p>In speech you mostly turn a sentence into a question just by lifting your tone at the end — not by flipping the words around. Same words, different melody:</p>
+    <div class="phrase">
+      <div class="phrase__fr">Tu viens. <button class="audio-btn" data-speak="Tu viens."></button></div>
+      <p class="phrase__en">A statement — the voice stays level and settles down. “You’re coming.”</p>
+    </div>
+    <div class="phrase">
+      <div class="phrase__fr">Tu viens ? <button class="audio-btn" data-speak="Tu viens ?"></button></div>
+      <p class="phrase__en">Same two words, voice lifts at the end → a question. “Are you coming?”</p>
+    </div>
+    <div class="tbl-wrap">
+      <table class="fr-tbl">
+        <thead><tr><th>Way to ask</th><th>Example</th><th>Register</th><th></th></tr></thead>
+        <tbody>
+          <tr><td>Rising tone</td><td class="col-fr">Tu viens ?</td><td>most common in speech</td><td><button class="audio-btn" data-speak="Tu viens ?"></button></td></tr>
+          <tr><td>est-ce que</td><td class="col-fr">Est-ce que tu viens ?</td><td>neutral, always safe</td><td><button class="audio-btn" data-speak="Est-ce que tu viens ?"></button></td></tr>
+          <tr><td>Inversion</td><td class="col-fr">Viens-tu ?</td><td>formal / written — stiff in chat</td><td><button class="audio-btn" data-speak="Viens-tu ?"></button></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout--tip">
+      <span class="callout__icon">💡</span>
+      <div class="callout__body">
+        <p class="callout__title">What to actually do</p>
+        <p class="mb-0">Default to rising tone or <span class="fr">est-ce que</span>. Keep inversion (<span class="fr">viens-tu ?</span>) for writing — out loud it sounds like a textbook.</p>
+      </div>
     </div>
 
     <div class="callout callout--german">
       <span class="callout__icon">🇩🇪</span>
       <div class="callout__body">
-        <p class="callout__title">German shortcut</p>
-        <p class="mb-0">You already own two of the hardest sounds. French <span class="fr">u</span> (tu, rue) is the German <strong>ü</strong> — same rounded “ee”. And French <span class="fr">ou</span> is just the German <strong>u</strong>. Also <span class="fr">ch</span> in French = the German <strong>sch</strong> (chat, chocolat). Three sounds you don’t have to learn from scratch.</p>
+        <p class="callout__title">Sounds you already own</p>
+        <p class="mb-0">Your German ear gives you several of the “hard” French sounds for free: French <span class="fr">u</span> (tu, rue) is the German <strong>ü</strong>; French <span class="fr">ou</span> is the German <strong>u</strong>; French <span class="fr">ch</span> (chat, chocolat) is the German <strong>sch</strong>; and the throaty French <strong>R</strong> is close to the <em>ch</em> in <em>Bach</em>. Don’t learn those from scratch — you’ve got them.</p>
       </div>
     </div>
 
-    <h2>Nasal vowels — the genuinely new sound</h2>
-    <p>This one <em>is</em> new (German and English don’t really have it). When a vowel is followed by <strong>n</strong> or <strong>m</strong>, you don’t pronounce the n/m — instead the air goes through your nose and colours the vowel.</p>
-    <div class="tbl-wrap">
-      <table class="fr-tbl">
-        <thead><tr><th>Spelling</th><th>Sounds like</th><th>Example</th><th></th></tr></thead>
-        <tbody>
-          <tr><td class="col-fr">an · en</td><td><span class="col-ipa">/ɑ̃/</span> (open, “on” without the n)</td><td class="col-fr">grand, en France</td><td><button class="audio-btn" data-speak="grand, en France"></button></td></tr>
-          <tr><td class="col-fr">on</td><td><span class="col-ipa">/ɔ̃/</span> (rounder)</td><td class="col-fr">bon, maison</td><td><button class="audio-btn" data-speak="bon, la maison"></button></td></tr>
-          <tr><td class="col-fr">in · ain · ein</td><td><span class="col-ipa">/ɛ̃/</span> (“ah” through the nose)</td><td class="col-fr">vin, pain, demain</td><td><button class="audio-btn" data-speak="le vin, le pain, demain"></button></td></tr>
-          <tr><td class="col-fr">un</td><td><span class="col-ipa">/œ̃/</span> (like in, a touch rounder)</td><td class="col-fr">un, lundi</td><td><button class="audio-btn" data-speak="un, lundi"></button></td></tr>
-        </tbody>
-      </table>
+    <h2>Your turn</h2>
+    <p>Read each cue and say it out loud the natural, spoken way — <em>then</em> reveal a model answer and compare.</p>
+    <div class="your-turn" data-answer="Y’a un problème.">
+      <p class="your-turn__cue">Tell a friend, casually, that <span class="fr">there’s a problem</span>.</p>
     </div>
-    <div class="callout callout--warn">
-      <span class="callout__icon">⚠️</span>
-      <div class="callout__body">
-        <p class="callout__title">Don’t say the n</p>
-        <p class="mb-0">In <span class="fr">vin</span> you never hear a hard “n” — the n just tells your nose to get involved. Saying “vinn” is the #1 giveaway of an English accent.</p>
-      </div>
+    <div class="your-turn" data-answer="Je sais pas.">
+      <p class="your-turn__cue">Say <span class="fr">“I don’t know”</span> the way you’d say it to a mate (drop the <span class="fr">ne</span>).</p>
+    </div>
+    <div class="your-turn" data-answer="Tu viens ?">
+      <p class="your-turn__cue">Ask <span class="fr">“are you coming?”</span> without using inversion.</p>
+    </div>
+    <div class="your-turn" data-answer="Je suis crevée.">
+      <p class="your-turn__cue">Tell a friend you’re exhausted (you’re speaking about yourself).</p>
     </div>
 
-    <h2>Silent endings</h2>
-    <p>French loves to write letters it doesn’t say — especially final consonants. <span class="fr">petit</span>, <span class="fr">grand</span>, <span class="fr">beaucoup</span> all end in a silent letter.</p>
-    <div class="callout callout--tip">
-      <span class="callout__icon">💡</span>
-      <div class="callout__body">
-        <p class="callout__title">The “CaReFuL” trick</p>
-        <p class="mb-0">Final consonants are usually silent — <em>except</em> <strong>c, r, f, l</strong>, which are usually pronounced (the consonants in the word <strong>CaReFuL</strong>). So you <em>do</em> hear the end of <span class="fr">avec</span>, <span class="fr">bonjour</span>, <span class="fr">chef</span>, <span class="fr">animal</span>. Handy exception: most <span class="fr">-er</span> verbs and words sound like “-ay” (parl<strong>er</strong> → /e/).</p>
-      </div>
-    </div>
-
-    <h2>What the accents do</h2>
-    <p>Accents aren’t decoration — they change a sound or tell two words apart.</p>
-    <div class="phrase">
-      <div class="phrase__fr">é <button class="audio-btn" data-speak="été"></button></div>
-      <p class="phrase__en"><strong>acute</strong> — closes the e to “ay”: été (summer)</p>
-    </div>
-    <div class="phrase">
-      <div class="phrase__fr">è · ê <button class="audio-btn" data-speak="père, fête"></button></div>
-      <p class="phrase__en"><strong>grave / circumflex</strong> — opens the e to “eh”: père (father), fête (party)</p>
-    </div>
-    <div class="phrase">
-      <div class="phrase__fr">ç <button class="audio-btn" data-speak="ça, garçon"></button></div>
-      <p class="phrase__en"><strong>cédille</strong> — keeps c soft (an “s” sound) before a, o, u: ça, garçon</p>
-    </div>
+    <h2>Quick check</h2>
+    <p>You’ll only ever hear these crushed-down versions. Can you decode them?</p>
+    <div data-quiz="real_sounds"></div>
 
     <div class="accordion">
       <div class="acc-item">
-        <button class="acc-head">Going deeper: liaison <span class="acc-head__icon">+</span></button>
+        <button class="acc-head">The “they” ending <span class="fr">-ent</span> is silent <span class="acc-head__icon">+</span></button>
         <div class="acc-panel"><div class="acc-panel__inner">
-          <p class="mb-0">A normally-silent final consonant wakes up and links to the next word when that word starts with a vowel. So <span class="fr">vous avez</span> becomes “vou-<strong>z</strong>-avez”, and <span class="fr">les amis</span> becomes “lay-<strong>z</strong>-amis”. It’s why spoken French flows together rather than landing word by word.</p>
+          <p class="mb-0">When <span class="fr">-ent</span> is the “they” verb ending, you don’t pronounce it at all: <span class="fr">ils parlent</span> sounds exactly like <span class="fr">il parle</span>. So you often can’t hear “he” vs “they” — context tells you which. (Elsewhere, as in <span class="fr">souvent</span>, <span class="fr">-ent</span> is a normal nasal vowel.)</p>
         </div></div>
       </div>
       <div class="acc-item">
-        <button class="acc-head">Going deeper: the French R <span class="acc-head__icon">+</span></button>
+        <button class="acc-head">The French R <span class="acc-head__icon">+</span></button>
         <div class="acc-panel"><div class="acc-panel__inner">
-          <p class="mb-0">It’s made at the back of the throat, not with the tip of the tongue — close to the sound you make clearing your throat gently, or the German/Swiss “ch” in <em>Bach</em>. Try <span class="fr">Paris</span>, <span class="fr">rouge</span>, <span class="fr">merci</span>. Don’t roll it like Spanish or Italian.</p>
+          <p class="mb-0">It’s made at the back of the throat, not with the tip of the tongue — close to the sound of gently clearing your throat, or the German/Swiss <em>ch</em> in <em>Bach</em>. Try <span class="fr">Paris</span> <button class="audio-btn" data-speak="Paris"></button>, <span class="fr">rouge</span> <button class="audio-btn" data-speak="rouge"></button>, <span class="fr">merci</span> <button class="audio-btn" data-speak="merci"></button>. Don’t roll it like Spanish or Italian.</p>
         </div></div>
       </div>
       <div class="acc-item">
-        <button class="acc-head">Going deeper: the silent verb ending -ent <span class="acc-head__icon">+</span></button>
+        <button class="acc-head">Liaison you must <em>not</em> make <span class="acc-head__icon">+</span></button>
         <div class="acc-panel"><div class="acc-panel__inner">
-          <p class="mb-0">When <span class="fr">-ent</span> is the “they” verb ending, it’s completely silent: <span class="fr">ils parlent</span> sounds exactly like <span class="fr">il parle</span>. (Elsewhere, as in <span class="fr">souvent</span>, <span class="fr">-ent</span> is a normal nasal vowel.)</p>
+          <p class="mb-0">A few links are actually forbidden. The clean one to remember: never link after <span class="fr">et</span> (“and”). <span class="fr">et alors</span> is “é — alors”, never “é-<strong>t</strong>-alors”. So when you hear no link after a word, that’s information too.</p>
         </div></div>
       </div>
     </div>
 
     <div class="module-foot">
       <div class="complete-row">
-        <button class="btn btn--primary btn--complete" data-complete="pronunciation">Mark as complete</button>
+        <button class="btn btn--primary btn--complete" data-complete="real-sounds">Mark as complete</button>
         <span class="complete-row__msg" data-complete-msg></span>
       </div>
       <div class="page-nav">
@@ -133,7 +207,7 @@
         </a>
         <a class="next" href="greetings.html">
           <div class="page-nav__dir">Next ›</div>
-          <div class="page-nav__title">Small talk & sounding natural</div>
+          <div class="page-nav__title">Small talk &amp; sounding natural</div>
         </a>
       </div>
     </div>

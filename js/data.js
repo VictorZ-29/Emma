@@ -7,9 +7,9 @@ FR.data = {
 
   /* ---------- The learning path (le sommaire) ---------- */
   modules: [
-    { num: '01', id: 'pronunciation', href: 'pronunciation.html',
-      title: 'Sounds & Pronunciation', mins: 12, status: 'ready',
-      desc: 'The few rules that make written French make sense out loud.' },
+    { num: '01', id: 'real-sounds', href: 'pronunciation.html',
+      title: 'How French really sounds', mins: 13, status: 'ready',
+      desc: 'Why fast French blurs together — liaisons, rhythm and the sounds people swallow, so you can follow it.' },
     { num: '02', id: 'small-talk', href: 'greetings.html',
       title: 'Small talk & sounding natural', mins: 12, status: 'ready',
       desc: 'Open and keep casual chat going — real greetings, fillers, and reactions.' },
@@ -147,6 +147,28 @@ FR.data = {
           options: ['Tant mieux !', 'Tant pis, ce sera pour une prochaine fois.', 'Carrément !'], answer: 1,
           explain: '« Tant pis » is the gentle “oh well, never mind”. « Tant mieux » means “all the better” — which would sound weirdly glad they cancelled.' }
       ]
+    },
+
+    real_sounds: {
+      title: 'Quick check: decode the fast version',
+      intro: 'You’ll only ever hear the left-hand version out loud. What is each one really?',
+      questions: [
+        { promptFr: 'chais pas', hint: 'A friend mumbles it with a shrug.', frOpts: true,
+          options: ['je sais', 'je ne sais pas', 'je sais bien'], answer: 1,
+          explain: '« chais pas » is « je (ne) sais pas » with the « je » and the « ne » swallowed — “dunno”. The shrug carries half the meaning.' },
+        { promptFr: 'y’a', hint: 'As in « y’a un problème ».', frOpts: true,
+          options: ['il a', 'il y a', 'y aller'], answer: 1,
+          explain: '« y’a » is « il y a » (“there is / there are”) squashed right down. You’ll hear it constantly.' },
+        { promptFr: 't’as', hint: 'As in « t’as les clés ? ».', frOpts: true,
+          options: ['tu es', 'tu as', 'tu vas'], answer: 1,
+          explain: '« t’as » = « tu as » (“you have”). Its cousin « t’es » = « tu es » (“you are”) — tell them apart by the verb that follows.' },
+        { promptFr: 'chuis', hint: 'As in « chuis crevé ».', frOpts: true,
+          options: ['je suis', 'je sais', 'chez'], answer: 0,
+          explain: '« chuis » is « je suis » (“I am”) — the « je s » collapses into one “ch” sound.' },
+        { promptFr: 'keske tu fais ?', hint: 'A very common opener.', frOpts: true,
+          options: ['qui te fait', 'qu’est-ce que tu fais', 'que sais-tu'], answer: 1,
+          explain: '« keske » is « qu’est-ce que » run together — here, “what are you doing?”. Catch « keske » and a huge number of spoken questions open up.' }
+      ]
     }
   },
 
@@ -168,6 +190,23 @@ FR.data = {
         'Nobody reaches for the textbook <span class="fr">« comment vas-tu ? »</span> — friends open with <span class="fr">« ça roule ? »</span> or <span class="fr">« quoi de neuf ? »</span>.',
         'The <span class="fr">ne</span> is dropped all the way through: <span class="fr">« c’est pas évident »</span>, <span class="fr">« pas grand-chose »</span>. That’s how it’s really spoken.',
         'Little glue words do the heavy lifting: <span class="fr">du coup</span> (“so”), <span class="fr">enfin</span> (“well…”), <span class="fr">hein</span> (a soft “eh?”).'
+      ]
+    },
+
+    real_sounds: {
+      title: 'Real speed, decoded',
+      setting: 'Léa is hurrying you out the door.',
+      lines: [
+        { who: 'A', name: 'Léa', fr: 'T’es prêt ? On y va ?', en: 'You ready? Shall we go?' },
+        { who: 'B', name: 'Toi', fr: 'Ouais, deux secondes… j’arrive !', en: 'Yeah, two secs… coming!' },
+        { who: 'A', name: 'Léa', fr: 'Y’a un bus dans cinq minutes, faut pas le rater.', en: 'There’s a bus in five minutes, we can’t miss it.' },
+        { who: 'B', name: 'Toi', fr: 'Attends, t’as les clés ?', en: 'Wait, have you got the keys?' },
+        { who: 'A', name: 'Léa', fr: 'Ouais ouais. Bon, on y va, chuis déjà en retard !', en: 'Yeah yeah. Right, let’s go, I’m already late!' }
+      ],
+      notes: [
+        'Heard the swallowed words? <span class="fr">t’es, t’as, y’a, chuis</span> are <span class="fr">tu es, tu as, il y a, je suis</span> — nobody says the full forms at speed.',
+        '<span class="fr">On y va</span> links into a single run — “on-n-i-va”. That join is <em>liaison</em>, coming up next.',
+        '<span class="fr">Faut pas le rater</span> is really <span class="fr">il ne faut pas le rater</span> — both the <span class="fr">il</span> and the <span class="fr">ne</span> vanish out loud.'
       ]
     }
   }
