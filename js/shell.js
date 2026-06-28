@@ -15,7 +15,7 @@ FR.icons = {
 FR.nav = [
   { label: 'Accueil',      href: 'index.html' },
   { label: 'Prononciation', href: 'pronunciation.html' },
-  { label: 'Salutations',  href: 'greetings.html' },
+  { label: 'Conversation', href: 'greetings.html' },
   { label: 'Grammaire',    href: 'articles-and-gender.html' },
   { label: 'Vocabulaire',  href: 'vocabulary-food.html' }
 ];
