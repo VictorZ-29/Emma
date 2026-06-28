@@ -13,8 +13,8 @@ FR.data = {
     { num: '02', id: 'small-talk', href: 'greetings.html',
       title: 'Small talk & sounding natural', mins: 12, status: 'ready',
       desc: 'Open and keep casual chat going — real greetings, fillers, and reactions.' },
-    { num: '03', id: 'about-you', href: '#',
-      title: 'Talking about yourself', mins: 12, status: 'soon',
+    { num: '03', id: 'about-you', href: 'about-you.html',
+      title: 'Talking about yourself', mins: 13, status: 'ready',
       desc: 'Say what you do, where you live and what you’re into — beyond « je m’appelle ».' },
     { num: '04', id: 'opinions', href: '#',
       title: 'Opinions, tastes & (dis)agreeing', mins: 12, status: 'soon',
@@ -169,6 +169,28 @@ FR.data = {
           options: ['qui te fait', 'qu’est-ce que tu fais', 'que sais-tu'], answer: 1,
           explain: '« keske » is « qu’est-ce que » run together — here, “what are you doing?”. Catch « keske » and a huge number of spoken questions open up.' }
       ]
+    },
+
+    about_you: {
+      title: 'Quick check: talking about yourself',
+      intro: 'Pick what a French person would actually say. The explanations are the point.',
+      questions: [
+        { promptFr: '« Tu fais quoi dans la vie ? »', hint: 'Someone you’ve just met asks you this.',
+          options: ['What are you doing right now?', 'What do you do for a living?', 'What are you making?'], answer: 1,
+          explain: 'It’s the everyday “what do you do for a living?” — answer with your job or studies, then ask it back with « et toi ? ».' },
+        { promptFr: 'Je ___ prof.', hint: '“I’m a teacher.” What fills the gap?', frOpts: true,
+          options: ['suis une', 'suis', 'suis le'], answer: 1,
+          explain: 'No article before a job: « je suis prof », never « je suis une prof ». (Your German already does this — ich bin Lehrerin.)' },
+        { promptFr: 'J’habite ___ France.', hint: 'Which one goes before a country like France?', frOpts: true,
+          options: ['à', 'en', 'au'], answer: 1,
+          explain: '« en » for feminine countries → en France, en Suisse. Cities take « à » (à Paris); masculine countries take « au » (au Canada).' },
+        { promptFr: 'J’habite ici ___ deux ans.', hint: '“…for two years — and I still do.”', frOpts: true,
+          options: ['depuis', 'pour', 'pendant'], answer: 0,
+          explain: 'Still true now → present tense + « depuis ». « pour » is for a planned future stretch; « pendant » for one that’s finished.' },
+        { promptFr: 'Je ___ escalade.', hint: '“I go climbing / I do a bit of climbing.”', frOpts: true,
+          options: ['fais de l’', 'fais l’', 'suis l’'], answer: 0,
+          explain: '« faire de » + activity → je fais de l’escalade, du foot, de la danse. That’s how you say what you do for fun.' }
+      ]
     }
   },
 
@@ -207,6 +229,26 @@ FR.data = {
         'Heard the swallowed words? <span class="fr">t’es, t’as, y’a, chuis</span> are <span class="fr">tu es, tu as, il y a, je suis</span> — nobody says the full forms at speed.',
         '<span class="fr">On y va</span> links into a single run — “on-n-i-va”. That join is <em>liaison</em>, coming up next.',
         '<span class="fr">Faut pas le rater</span> is really <span class="fr">il ne faut pas le rater</span> — both the <span class="fr">il</span> and the <span class="fr">ne</span> vanish out loud.'
+      ]
+    },
+
+    about_you: {
+      title: 'Getting to know someone',
+      setting: 'At a friend’s party, someone you’ve just met starts chatting.',
+      lines: [
+        { who: 'A', name: 'Max', fr: 'Alors, tu fais quoi dans la vie ?', en: 'So, what do you do?' },
+        { who: 'B', name: 'Toi', fr: 'Je suis prof d’anglais. Et toi ?', en: 'I’m an English teacher. You?' },
+        { who: 'A', name: 'Max', fr: 'Moi, je suis dans l’informatique. T’es d’ici ?', en: 'Me, I’m in IT. Are you from around here?' },
+        { who: 'B', name: 'Toi', fr: 'Non, je suis anglaise. J’habite ici depuis deux ans.', en: 'No, I’m English. I’ve lived here for two years.' },
+        { who: 'A', name: 'Max', fr: 'Ah ! Et ça te plaît ?', en: 'Oh! And do you like it?' },
+        { who: 'B', name: 'Toi', fr: 'J’adore. J’ai vécu à Zurich avant, donc le changement me fait du bien.', en: 'I love it. I lived in Zurich before, so the change is good for me.' },
+        { who: 'A', name: 'Max', fr: 'Et à part bosser, tu fais quoi ?', en: 'And apart from work, what do you get up to?' },
+        { who: 'B', name: 'Toi', fr: 'Je fais pas mal d’escalade, et j’apprends le français, du coup…', en: 'I do a fair bit of climbing, and I’m learning French, so…' }
+      ],
+      notes: [
+        'The real “what do you do?” is <span class="fr">« tu fais quoi dans la vie ? »</span> — not the stiff <span class="fr">« quelle est votre profession ? »</span>.',
+        'Jobs take no “a”: <span class="fr">je suis prof</span>, <span class="fr">je suis dans l’informatique</span> — never <span class="fr">« je suis une prof »</span>.',
+        '<span class="fr">Depuis deux ans</span> with the <em>present</em> tense means “for two years, and still” — French stays in the present where English switches to “have lived”.'
       ]
     }
   }
