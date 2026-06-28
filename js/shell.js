@@ -93,6 +93,30 @@ FR.speak = function (text, btn) {
   speechSynthesis.speak(u);
 };
 
+/* Speak several French lines in sequence (for a dialogue "Play all") */
+FR.speakSequence = function (texts, opts) {
+  opts = opts || {};
+  if (!('speechSynthesis' in window)) { FR.toast('Audio isn’t supported in this browser'); return null; }
+  speechSynthesis.cancel();
+  let i = 0, stopped = false;
+  function next() {
+    if (stopped) return;
+    if (i >= texts.length) { if (opts.onDone) opts.onDone(); return; }
+    const idx = i++;
+    const u = new SpeechSynthesisUtterance(texts[idx]);
+    u.lang = 'fr-FR';
+    u.rate = 0.92;
+    const v = FR._voices.find(x => /fr[-_]fr/i.test(x.lang)) || FR._voices.find(x => /^fr/i.test(x.lang));
+    if (v) u.voice = v;
+    if (opts.onLineStart) opts.onLineStart(idx);
+    u.onend = next;
+    u.onerror = next;
+    speechSynthesis.speak(u);
+  }
+  next();
+  return { stop() { stopped = true; speechSynthesis.cancel(); if (opts.onStop) opts.onStop(); } };
+};
+
 /* Build a ready-to-use audio button element */
 FR.audioButton = function (text, label) {
   const b = document.createElement('button');

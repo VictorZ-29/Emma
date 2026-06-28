@@ -195,6 +195,96 @@ FR.initQuizzes = function () {
 };
 
 /* ------------------------------------------------------------------
+   Dialogue — a short exchange to shadow (data-dialogue="…")
+------------------------------------------------------------------ */
+FR.initDialogues = function () {
+  document.querySelectorAll('[data-dialogue]').forEach(host => {
+    const id = host.dataset.dialogue;
+    const d = FR.data.dialogues && FR.data.dialogues[id];
+    if (!d) { host.innerHTML = '<p class="muted">Dialogue “' + id + '” not found.</p>'; return; }
+    const lines = d.lines || [];
+
+    host.classList.add('dialogue');
+    let html = '';
+    if (d.setting) html += `<p class="dialogue__setting">${d.setting}</p>`;
+    html += `<div class="dialogue__controls">
+        <button class="btn btn--ghost btn--sm" data-playall type="button">▶ Play all</button>
+        <span class="dialogue__hint">Play a line, pause, and say it back out loud.</span>
+      </div>
+      <div class="dialogue__lines">`;
+    lines.forEach((ln, n) => {
+      const side = ln.who === 'B' ? 'b' : 'a';
+      html += `<div class="dline dline--${side}" data-line="${n}">
+          <div class="dline__bubble">
+            <p class="dline__name">${ln.name || ln.who}</p>
+            <p class="dline__fr">${ln.fr} <span class="dline__audio"></span></p>
+            <p class="dline__en">${ln.en}</p>
+          </div>
+        </div>`;
+    });
+    html += '</div>';
+    if (d.notes && d.notes.length) {
+      html += '<div class="dialogue__notes">' +
+        d.notes.map(nt => `<p class="dialogue__note">${nt}</p>`).join('') + '</div>';
+    }
+    host.innerHTML = html;
+
+    // per-line audio
+    host.querySelectorAll('.dline').forEach((el, n) => {
+      el.querySelector('.dline__audio').appendChild(FR.audioButton(lines[n].fr));
+    });
+
+    // "Play all" sequencer
+    const playBtn = host.querySelector('[data-playall]');
+    let seq = null;
+    function reset() {
+      playBtn.textContent = '▶ Play all';
+      host.querySelectorAll('.dline.is-speaking').forEach(e => e.classList.remove('is-speaking'));
+      seq = null;
+    }
+    playBtn.addEventListener('click', () => {
+      if (seq) { seq.stop(); reset(); return; }
+      playBtn.textContent = '■ Stop';
+      seq = FR.speakSequence(lines.map(l => l.fr), {
+        onLineStart(idx) {
+          host.querySelectorAll('.dline.is-speaking').forEach(e => e.classList.remove('is-speaking'));
+          const cur = host.querySelector(`.dline[data-line="${idx}"]`);
+          if (cur) cur.classList.add('is-speaking');
+        },
+        onDone: reset
+      });
+      if (!seq) reset();   // speech synthesis unavailable
+    });
+  });
+};
+
+/* ------------------------------------------------------------------
+   "Your turn" — speaking prompt with a reveal (.your-turn[data-answer])
+------------------------------------------------------------------ */
+FR.initYourTurn = function () {
+  document.querySelectorAll('.your-turn').forEach(el => {
+    const answer = el.dataset.answer;
+    if (!answer || el.dataset.ready) return;
+    el.dataset.ready = '1';
+
+    const reveal = document.createElement('div');
+    reveal.className = 'your-turn__reveal';
+    reveal.hidden = true;
+    reveal.innerHTML = `<p class="your-turn__fr">« ${answer} » <span class="your-turn__audio"></span></p>`;
+    reveal.querySelector('.your-turn__audio').appendChild(FR.audioButton(answer));
+
+    const btn = document.createElement('button');
+    btn.className = 'btn btn--ghost btn--sm your-turn__btn';
+    btn.type = 'button';
+    btn.textContent = 'Show a natural answer';
+    btn.addEventListener('click', () => { reveal.hidden = false; btn.hidden = true; });
+
+    el.appendChild(btn);
+    el.appendChild(reveal);
+  });
+};
+
+/* ------------------------------------------------------------------
    "Mark complete" buttons on module pages
 ------------------------------------------------------------------ */
 FR.initCompletion = function () {
@@ -309,6 +399,8 @@ document.addEventListener('DOMContentLoaded', () => {
   FR.initAccordions();
   FR.initDecks();
   FR.initQuizzes();
+  FR.initDialogues();
+  FR.initYourTurn();
   FR.initCompletion();
   FR.initHub();
 });

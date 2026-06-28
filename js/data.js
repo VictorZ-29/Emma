@@ -10,33 +10,39 @@ FR.data = {
     { num: '01', id: 'pronunciation', href: 'pronunciation.html',
       title: 'Sounds & Pronunciation', mins: 12, status: 'ready',
       desc: 'The few rules that make written French make sense out loud.' },
-    { num: '02', id: 'greetings', href: 'greetings.html',
-      title: 'Greetings & Politeness', mins: 10, status: 'ready',
-      desc: 'Say hello, be polite, and know when to use tu vs vous.' },
-    { num: '03', id: 'articles', href: 'articles-and-gender.html',
-      title: 'Gender & Articles', mins: 12, status: 'ready',
-      desc: 'le, la, un, une — why every noun has a gender, made painless.' },
-    { num: '04', id: 'etre-avoir', href: '#',
-      title: 'To Be, To Have & Pronouns', mins: 14, status: 'soon',
-      desc: 'être and avoir — the two verbs everything is built on.' },
-    { num: '05', id: 'er-verbs', href: '#',
-      title: 'Your First Verbs', mins: 12, status: 'soon',
-      desc: 'Regular -er verbs: talk about what you do every day.' },
-    { num: '06', id: 'aller-faire', href: '#',
-      title: 'Going & Doing', mins: 12, status: 'soon',
-      desc: 'aller and faire, plus the easy near-future (je vais manger).' },
-    { num: '07', id: 'adjectives', href: '#',
-      title: 'Describing Things', mins: 11, status: 'soon',
-      desc: 'Adjectives and how they agree — petit, petite, petits…' },
-    { num: '08', id: 'questions', href: '#',
-      title: 'Saying No & Asking Questions', mins: 11, status: 'soon',
-      desc: 'ne…pas, and the three ways to ask a question.' },
-    { num: '09', id: 'numbers', href: '#',
-      title: 'Numbers, Time & Dates', mins: 13, status: 'soon',
-      desc: 'Count, tell the time, and survive French 70s, 80s, 90s.' },
-    { num: '10', id: 'past', href: '#',
-      title: 'The Past', mins: 15, status: 'soon',
-      desc: 'passé composé: say what happened earlier today.' }
+    { num: '02', id: 'small-talk', href: 'greetings.html',
+      title: 'Small talk & sounding natural', mins: 12, status: 'ready',
+      desc: 'Open and keep casual chat going — real greetings, fillers, and reactions.' },
+    { num: '03', id: 'about-you', href: '#',
+      title: 'Talking about yourself', mins: 12, status: 'soon',
+      desc: 'Say what you do, where you live and what you’re into — beyond « je m’appelle ».' },
+    { num: '04', id: 'opinions', href: '#',
+      title: 'Opinions, tastes & (dis)agreeing', mins: 12, status: 'soon',
+      desc: 'Give your take and react to others — « je trouve que… », « t’as raison », « mouais ».' },
+    { num: '05', id: 'the-past', href: '#',
+      title: 'Telling stories: the past', mins: 15, status: 'soon',
+      desc: 'Say what you did this weekend — passé composé and imparfait, the practical way.' },
+    { num: '06', id: 'making-plans', href: '#',
+      title: 'Making plans & suggestions', mins: 12, status: 'soon',
+      desc: 'Propose, accept and arrange to meet — « ça te dit de… », « on pourrait… ».' },
+    { num: '07', id: 'feelings', href: '#',
+      title: 'Feelings & how you’re doing', mins: 11, status: 'soon',
+      desc: 'Say how you really feel — « crevé », « ça va pas fort », « j’en peux plus ».' },
+    { num: '08', id: 'repair', href: '#',
+      title: 'When you’re lost in a conversation', mins: 10, status: 'soon',
+      desc: 'Ask people to repeat or slow down, buy time, and check you understood.' },
+    { num: '09', id: 'out-and-about', href: '#',
+      title: 'Out in the world (socially)', mins: 12, status: 'soon',
+      desc: 'Café, shop and restaurant as chit-chat, not just transactions.' },
+    { num: '10', id: 'pronouns', href: '#',
+      title: 'Pronouns so you don’t repeat yourself', mins: 13, status: 'soon',
+      desc: 'le/la/les, lui/leur, y, en — the big fluency unlock for flowing speech.' },
+    { num: '11', id: 'native-touches', href: '#',
+      title: 'Sounding more French', mins: 12, status: 'soon',
+      desc: 'c’est vs il est, on vs nous, softeners and the little idioms.' },
+    { num: '12', id: 'politeness', href: '#',
+      title: 'Polite & hypothetical chunks', mins: 11, status: 'soon',
+      desc: 'The conditional for politeness — « je voudrais », « on pourrait », « il faut que ».' }
   ],
 
   /* ---------- Vocabulary tracks ---------- */
@@ -118,6 +124,50 @@ FR.data = {
         { promptFr: 'C’est ___ étudiante.', hint: 'a (female) student', frOpts: true,
           options: ['un', 'une'], answer: 1,
           explain: '« une étudiante » — the -e ending and the meaning are both feminine. A male student would be « un étudiant ».' }
+      ]
+    },
+
+    reactions: {
+      title: 'Quick check: pick the natural reaction',
+      intro: 'Someone says something — pick the reaction that fits. Trust your gut; the explanations are the point.',
+      questions: [
+        { promptFr: '« J’ai réussi mon permis ! »', hint: 'Your friend’s great news — react.', frOpts: true,
+          options: ['Tant pis.', 'Carrément !', 'Génial ! Bravo !'], answer: 2,
+          explain: '« Génial ! Bravo ! » celebrates it. « Tant pis » is “oh well” for letdowns, and « carrément » means “totally” — perfect for agreeing, but not for congratulating.' },
+        { promptFr: '« Tu sais pas ce qui m’est arrivé hier… »', hint: 'Show you’re hooked and want the story.', frOpts: true,
+          options: ['Ah bon ? Raconte !', 'De rien.', 'Bonne journée !'], answer: 0,
+          explain: '« Ah bon ? Raconte ! » = “oh really? do tell!” — it keeps them going. The other two are unrelated set phrases (“you’re welcome”, “have a good day”).' },
+        { promptFr: '« Ce film était vraiment nul. »', hint: 'You completely agree.', frOpts: true,
+          options: ['N’importe quoi !', 'C’est clair !', 'Tant pis.'], answer: 1,
+          explain: '« C’est clair ! » = “totally, exactly”. « N’importe quoi ! » means the opposite — “that’s nonsense” — and « tant pis » is “oh well”.' },
+        { promptFr: '« Les licornes existent, j’en ai vu une ! »', hint: 'You think that’s ridiculous.', frOpts: true,
+          options: ['Carrément.', 'N’importe quoi !', 'Avec plaisir.'], answer: 1,
+          explain: '« N’importe quoi ! » is exactly “yeah, right / that’s rubbish”. « Carrément » would be agreeing, and « avec plaisir » means “gladly”.' },
+        { promptFr: '« Désolé, je peux pas venir ce soir. »', hint: 'A bit of a letdown, but no big deal.', frOpts: true,
+          options: ['Tant mieux !', 'Tant pis, ce sera pour une prochaine fois.', 'Carrément !'], answer: 1,
+          explain: '« Tant pis » is the gentle “oh well, never mind”. « Tant mieux » means “all the better” — which would sound weirdly glad they cancelled.' }
+      ]
+    }
+  },
+
+  /* ---------- Dialogues (short exchanges to shadow) ---------- */
+  dialogues: {
+    small_talk: {
+      title: 'Running into a friend',
+      setting: 'You bump into your friend Léa in the street.',
+      lines: [
+        { who: 'A', name: 'Léa', fr: 'Salut ! Ça roule ?', en: 'Hey! How’s it going?' },
+        { who: 'B', name: 'Toi', fr: 'Coucou ! Ouais, tranquille, et toi ?', en: 'Hi! Yeah, all good — you?' },
+        { who: 'A', name: 'Léa', fr: 'Ça va, ça va. Quoi de neuf ?', en: 'Good, good. What’s new?' },
+        { who: 'B', name: 'Toi', fr: 'Bah, pas grand-chose. J’ai commencé le français, du coup je révise un peu.', en: 'Eh, not much. I’ve started French, so I’m revising a bit.' },
+        { who: 'A', name: 'Léa', fr: 'Ah ouais ? C’est cool, ça !', en: 'Oh really? That’s cool!' },
+        { who: 'B', name: 'Toi', fr: 'Ouais, enfin… c’est pas évident, mais ça vient.', en: 'Yeah, well… it’s not easy, but it’s coming along.' },
+        { who: 'A', name: 'Léa', fr: 'Carrément. Allez, bon courage, hein !', en: 'Totally. Right, good luck with it!' }
+      ],
+      notes: [
+        'Nobody reaches for the textbook <span class="fr">« comment vas-tu ? »</span> — friends open with <span class="fr">« ça roule ? »</span> or <span class="fr">« quoi de neuf ? »</span>.',
+        'The <span class="fr">ne</span> is dropped all the way through: <span class="fr">« c’est pas évident »</span>, <span class="fr">« pas grand-chose »</span>. That’s how it’s really spoken.',
+        'Little glue words do the heavy lifting: <span class="fr">du coup</span> (“so”), <span class="fr">enfin</span> (“well…”), <span class="fr">hein</span> (a soft “eh?”).'
       ]
     }
   }

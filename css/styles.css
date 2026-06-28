@@ -484,6 +484,47 @@ table.fr-tbl { width: 100%; border-collapse: collapse; font-size: var(--fs-sm); 
 .quiz__score small { font-size: 1.3rem; color: var(--ink-faint); }
 .quiz__verdict { font-family: var(--serif); font-size: 1.4rem; font-weight: 600; margin: var(--sp-3) 0 var(--sp-2); }
 
+/* ---------- Dialogue (a short exchange to shadow) ---------- */
+.dialogue { margin: var(--sp-5) 0; }
+.dialogue__setting { font-size: var(--fs-sm); color: var(--ink-faint); font-style: italic; margin: 0 0 var(--sp-3); }
+.dialogue__controls { display: flex; align-items: center; gap: var(--sp-3); flex-wrap: wrap; margin-bottom: var(--sp-4); }
+.dialogue__hint { font-size: var(--fs-xs); color: var(--ink-faint); }
+.dialogue__lines { display: flex; flex-direction: column; gap: var(--sp-3); }
+.dline { display: flex; }
+.dline--a { justify-content: flex-start; }
+.dline--b { justify-content: flex-end; }
+.dline__bubble {
+  max-width: 82%; border: 1px solid var(--line); border-radius: var(--radius);
+  padding: var(--sp-3) var(--sp-4); box-shadow: var(--shadow-sm);
+  transition: border-color .15s, box-shadow .15s;
+}
+.dline--a .dline__bubble { background: var(--violet-tint); border-color: var(--violet-tint2); border-bottom-left-radius: 5px; }
+.dline--b .dline__bubble { background: var(--card); border-bottom-right-radius: 5px; }
+.dline.is-speaking .dline__bubble { border-color: var(--violet); box-shadow: 0 0 0 2px var(--violet-tint2); }
+.dline__name { font-size: var(--fs-xs); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 .25rem; color: var(--violet); }
+.dline--b .dline__name { color: var(--ink-faint); }
+.dline__fr { font-family: var(--serif); font-size: 1.15rem; color: var(--ink); line-height: 1.4; margin: 0; }
+.dline__en { font-size: var(--fs-sm); color: var(--ink-soft); margin: .25rem 0 0; }
+.dline__audio { display: inline-flex; vertical-align: middle; }
+.dline__audio .audio-btn, .your-turn__audio .audio-btn { width: 1.8rem; height: 1.8rem; }
+.dline__audio .audio-btn svg, .your-turn__audio .audio-btn svg { width: .9rem; height: .9rem; }
+.dialogue__notes { margin-top: var(--sp-4); padding: var(--sp-4); background: var(--paper-dim); border-radius: var(--radius); }
+.dialogue__note { font-size: var(--fs-sm); color: var(--ink-soft); margin: 0 0 var(--sp-2); }
+.dialogue__note:last-child { margin: 0; }
+
+/* ---------- "Your turn" speaking prompt ---------- */
+.your-turn {
+  background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--violet);
+  border-radius: var(--radius); padding: var(--sp-4) var(--sp-5); margin: var(--sp-4) 0;
+}
+.your-turn__cue { margin: 0 0 var(--sp-3); color: var(--ink); }
+.your-turn__cue::before { content: "🗣"; margin-right: .5rem; }
+.your-turn__reveal { margin-top: var(--sp-3); padding-top: var(--sp-3); border-top: 1px dashed var(--line); }
+.your-turn__fr {
+  font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--violet-deep);
+  margin: 0; display: flex; align-items: baseline; gap: .5rem; flex-wrap: wrap;
+}
+
 /* ---------- Module footer nav + completion ---------- */
 .module-foot { margin-top: var(--sp-8); padding-top: var(--sp-6); border-top: 1px solid var(--line); }
 .complete-row { display: flex; align-items: center; gap: var(--sp-4); flex-wrap: wrap; margin-bottom: var(--sp-6); }
