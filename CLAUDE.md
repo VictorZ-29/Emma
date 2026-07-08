@@ -282,9 +282,10 @@ FR.data = {
     // ...
   ],
 
-  // Vocabulary tracks (cards on the hub).
+  // Vocabulary tracks (cards on the hub). id must match a vocab deck key —
+  // the hub shows the card count from it. (No emoji — the title carries the card.)
   themes: [
-    { id: 'food', emoji: '🥖', title: 'Food & going out',
+    { id: 'food', title: 'Food & going out',
       href: 'vocabulary-food.html', status: 'ready' },  // status as above
   ],
 
@@ -348,14 +349,13 @@ fights (see the note at the bottom of `styles.css`).
 
 These already exist and are styled. Match these patterns exactly.
 
-- **Callout** (4 variants — pick by meaning):
+- **Callout** (4 variants — pick by meaning: note=key idea · tip=insider/"what people
+  actually say" · german=🇩🇪 bridge · warn=false-friend/mistake). No icon column — the
+  small-caps title carries the variant; the 🇩🇪 goes in the german callout's title text:
   ```html
-  <div class="callout callout--note">   <!-- note=key idea · tip=insider/"what people
-       <span class="callout__icon">📌</span>   really say" · german=🇩🇪 bridge · warn=false-friend/mistake -->
-    <div class="callout__body">
-      <p class="callout__title">Title</p>
-      <p class="mb-0">Body.</p>
-    </div>
+  <div class="callout callout--note">
+    <p class="callout__title">Title</p>
+    <p class="mb-0">Body.</p>
   </div>
   ```
 - **French example block** (with audio):

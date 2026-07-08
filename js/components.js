@@ -1,7 +1,8 @@
 /* =================================================================
    components.js — interactive pieces, all data-attribute driven.
-   Pages opt in with: data-deck, data-quiz, data-complete, [.acc-head],
-   and hub containers (#sommaire, #themes, #phrase-day, #hero-stats).
+   Pages opt in with: data-deck, data-quiz, data-dialogue, .your-turn,
+   data-complete, [.acc-head], and hub containers
+   (#sommaire, #themes, #phrase-day, #hero-stats).
    ================================================================= */
 window.FR = window.FR || {};
 
@@ -38,15 +39,16 @@ FR.initDecks = function () {
       <button class="flashcard" type="button" aria-label="Flip card">
         <div class="flashcard__inner">
           <div class="flashcard__face flashcard__face--front">
-            <span class="flashcard__tag">🇫🇷 French</span>
+            <span class="flashcard__tag">Français</span>
             <div class="flashcard__fr"></div>
             <div class="fc-audio"></div>
             <div class="flashcard__hint">Tap the card to flip</div>
           </div>
           <div class="flashcard__face flashcard__face--back">
-            <span class="flashcard__tag">🇬🇧 English</span>
+            <span class="flashcard__tag">Anglais</span>
             <div class="flashcard__en"></div>
             <div class="flashcard__ex"></div>
+            <div class="flashcard__note"></div>
           </div>
         </div>
       </button>
@@ -55,8 +57,8 @@ FR.initDecks = function () {
           <button class="icon-btn" data-prev type="button" aria-label="Previous card">‹</button>
           <button class="icon-btn" data-next type="button" aria-label="Next card">›</button>
         </div>
-        <button class="btn btn--ghost btn--sm" data-shuffle type="button">⤮ Shuffle</button>
-        <button class="btn btn--gold btn--sm" data-known type="button">Got it 👍</button>
+        <button class="btn btn--ghost btn--sm" data-shuffle type="button">Shuffle</button>
+        <button class="btn btn--gold btn--sm" data-known type="button">Got it</button>
       </div>
       <div class="deck__done"></div>`;
 
@@ -65,6 +67,7 @@ FR.initDecks = function () {
     const elAudio = host.querySelector('.fc-audio');
     const elEn = host.querySelector('.flashcard__en');
     const elEx = host.querySelector('.flashcard__ex');
+    const elNote = host.querySelector('.flashcard__note');
     const elProg = host.querySelector('.deck__progress');
     const elDone = host.querySelector('.deck__done');
 
@@ -76,12 +79,12 @@ FR.initDecks = function () {
       elAudio.appendChild(FR.audioButton(c.fr));
       elEn.textContent = c.en;
       let back = c.ex ? `« ${c.ex} »` : '';
-      if (c.exEn) back += `<br><span style="font-style:normal;color:var(--ink-faint)">${c.exEn}</span>`;
-      if (c.note) back += `<br><br><span style="font-style:normal;color:var(--violet-deep);font-size:.85rem">💡 ${c.note}</span>`;
+      if (c.exEn) back += `<br><span class="gloss">${c.exEn}</span>`;
       elEx.innerHTML = back;
+      elNote.textContent = c.note || '';
       elProg.textContent = `Card ${i + 1} of ${cards.length}` + (knownSeen ? ` · ${knownSeen} marked “got it”` : '');
       seen.add(cards[i].fr);
-      elDone.textContent = (seen.size === cards.length) ? 'Nice — you’ve been through the whole deck. Bravo ! 🎉' : '';
+      elDone.textContent = (seen.size === cards.length) ? 'That’s the whole deck — bravo !' : '';
     }
     function go(n) { i = (n + cards.length) % cards.length; render(); }
 
@@ -162,7 +165,7 @@ FR.initQuizzes = function () {
 
         const last = idx === q.questions.length - 1;
         host.querySelector('.quiz__foot').innerHTML =
-          `<button class="btn btn--primary" data-next type="button">${last ? 'See result' : 'Next question'} →</button>`;
+          `<button class="btn btn--primary" data-next type="button">${last ? 'See result' : 'Next question'}</button>`;
         host.querySelector('[data-next]').addEventListener('click', () => {
           if (last) { renderResult(); } else { idx++; renderQuestion(); }
         });
@@ -175,7 +178,7 @@ FR.initQuizzes = function () {
       const total = q.questions.length;
       const pct = score / total;
       let verdict;
-      if (pct === 1) verdict = 'Parfait ! 🎉';
+      if (pct === 1) verdict = 'Parfait !';
       else if (pct >= 0.7) verdict = 'Très bien !';
       else if (pct >= 0.4) verdict = 'Pas mal — revois et recommence.';
       else verdict = 'Ça vient, promis. Réessaie !';
@@ -196,6 +199,7 @@ FR.initQuizzes = function () {
 
 /* ------------------------------------------------------------------
    Dialogue — a short exchange to shadow (data-dialogue="…")
+   Rendered script-style: speaker in the margin, French + gloss beside.
 ------------------------------------------------------------------ */
 FR.initDialogues = function () {
   document.querySelectorAll('[data-dialogue]').forEach(host => {
@@ -208,15 +212,15 @@ FR.initDialogues = function () {
     let html = '';
     if (d.setting) html += `<p class="dialogue__setting">${d.setting}</p>`;
     html += `<div class="dialogue__controls">
-        <button class="btn btn--ghost btn--sm" data-playall type="button">▶ Play all</button>
-        <span class="dialogue__hint">Play a line, pause, and say it back out loud.</span>
+        <button class="btn btn--ghost btn--sm" data-playall type="button">Play all</button>
+        <span class="dialogue__hint">Play a line, pause, and say it back out loud — your lines are the ones marked in violet.</span>
       </div>
       <div class="dialogue__lines">`;
     lines.forEach((ln, n) => {
       const side = ln.who === 'B' ? 'b' : 'a';
       html += `<div class="dline dline--${side}" data-line="${n}">
-          <div class="dline__bubble">
-            <p class="dline__name">${ln.name || ln.who}</p>
+          <p class="dline__name">${ln.name || ln.who}</p>
+          <div class="dline__body">
             <p class="dline__fr">${ln.fr} <span class="dline__audio"></span></p>
             <p class="dline__en">${ln.en}</p>
           </div>
@@ -238,13 +242,13 @@ FR.initDialogues = function () {
     const playBtn = host.querySelector('[data-playall]');
     let seq = null;
     function reset() {
-      playBtn.textContent = '▶ Play all';
+      playBtn.textContent = 'Play all';
       host.querySelectorAll('.dline.is-speaking').forEach(e => e.classList.remove('is-speaking'));
       seq = null;
     }
     playBtn.addEventListener('click', () => {
       if (seq) { seq.stop(); reset(); return; }
-      playBtn.textContent = '■ Stop';
+      playBtn.textContent = 'Stop';
       seq = FR.speakSequence(lines.map(l => l.fr), {
         onLineStart(idx) {
           host.querySelectorAll('.dline.is-speaking').forEach(e => e.classList.remove('is-speaking'));
@@ -328,29 +332,28 @@ FR.initHub = function () {
     pd.querySelector('.phrase-day__audio').appendChild(FR.audioButton(p.fr, 'Listen'));
   }
 
-  // Sommaire (the path)
+  // Sommaire (the path) — a table of contents with dotted leaders
   const som = document.getElementById('sommaire');
   if (som) {
     som.classList.add('sommaire');
-    let html = '<div class="sommaire__line"></div>';
+    let html = '';
     FR.data.modules.forEach(m => {
-      const done = m.status === 'ready' && FR.progress.isDone(m.id);
       const ready = m.status === 'ready';
+      const done = ready && FR.progress.isDone(m.id);
       const tag = ready ? 'a' : 'div';
       const href = ready ? ` href="${m.href}"` : '';
-      let pill;
-      if (done) pill = '<span class="pill pill--done">Terminé ✓</span>';
-      else if (ready) pill = `<span class="pill pill--violet">Commencer →</span>`;
-      else pill = '<span class="pill pill--soon">Bientôt</span>';
+      const status = done ? 'Terminé' : (ready ? 'Commencer' : 'Bientôt');
       html += `
-        <${tag} class="entry ${done ? 'is-done' : ''} ${ready ? '' : 'is-soon'}"${href}>
-          <div class="entry__num"><span>${m.num}</span></div>
-          <div>
-            <p class="entry__title">${m.title}</p>
-            <p class="entry__desc">${m.desc}</p>
-            <div class="entry__meta"><span>⏱ ${m.mins} min</span></div>
-          </div>
-          <div class="entry__status">${pill}</div>
+        <${tag} class="entry${done ? ' is-done' : ''}${ready ? '' : ' is-soon'}"${href}>
+          <span class="entry__num">${m.num}</span>
+          <span class="entry__main">
+            <span class="entry__head">
+              <span class="entry__title">${m.title}</span>
+              <span class="entry__leader"></span>
+              <span class="entry__status">${status}</span>
+            </span>
+            <span class="entry__desc">${m.desc} <span class="entry__mins">· ${m.mins} min</span></span>
+          </span>
         </${tag}>`;
     });
     som.innerHTML = html;
@@ -364,30 +367,31 @@ FR.initHub = function () {
       const ready = t.status === 'ready';
       const tag = ready ? 'a' : 'div';
       const href = ready ? ` href="${t.href}"` : '';
-      const meta = ready ? 'Flashcards ready' : 'Coming soon';
-      return `<${tag} class="theme ${ready ? '' : 'is-soon'}"${href}>
-          <span class="theme__emoji">${t.emoji}</span>
+      const count = (FR.data.vocab && FR.data.vocab[t.id] || []).length;
+      const meta = ready ? `${count} cartes · audio` : 'Bientôt';
+      return `<${tag} class="theme${ready ? '' : ' is-soon'}"${href}>
           <p class="theme__title">${t.title}</p>
           <span class="theme__meta">${meta}</span>
         </${tag}>`;
     }).join('');
   }
 
-  // Hero stats + start CTA
+  // Hero meta + start CTA
   const streak = FR.progress.pingStreak();
   const doneN = FR.progress.countReadyDone();
   const totalN = FR.progress.readyTotal();
   const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
-  set('stat-streak', streak);
-  set('stat-done', `${doneN}/${totalN}`);
-  set('stat-streak-label', streak === 1 ? 'day streak' : 'day streak');
+  set('stat-streak', `${streak} ${streak === 1 ? 'day' : 'days'}`);
+  set('stat-done', `${doneN} of ${totalN}`);
+  const streakWrap = document.getElementById('meta-streak');
+  if (streakWrap) streakWrap.classList.toggle('is-gold', streak > 1);
 
   const cta = document.getElementById('start-cta');
   if (cta) {
     const firstUndone = FR.data.modules.find(m => m.status === 'ready' && !FR.progress.isDone(m.id));
-    if (doneN === 0) { cta.href = FR.data.modules[0].href; cta.textContent = 'Start here →'; }
-    else if (firstUndone) { cta.href = firstUndone.href; cta.textContent = 'Continue →'; }
-    else { cta.href = FR.data.modules[0].href; cta.textContent = 'Review from the top →'; }
+    if (doneN === 0) { cta.href = FR.data.modules[0].href; cta.textContent = 'Start here'; }
+    else if (firstUndone) { cta.href = firstUndone.href; cta.textContent = 'Continue'; }
+    else { cta.href = FR.data.modules[0].href; cta.textContent = 'Review from the top'; }
   }
 };
 

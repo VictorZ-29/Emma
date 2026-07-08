@@ -7,28 +7,38 @@ window.FR = window.FR || {};
 /* ---- Icons (inline SVG) ---- */
 FR.icons = {
   speaker: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a9 9 0 0 1 0 14"/></svg>',
-  menu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>',
-  prev: '‹', next: '›', shuffle: '⤮'
+  menu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>'
 };
 
 /* ---- Nav definition (French labels — all near-cognates, low friction) ---- */
 FR.nav = [
   { label: 'Accueil',      href: 'index.html' },
-  { label: 'Prononciation', href: 'pronunciation.html' },
-  { label: 'Conversation', href: 'greetings.html' },
-  { label: 'Grammaire',    href: 'articles-and-gender.html' },
-  { label: 'Vocabulaire',  href: 'vocabulary-food.html' }
+  { label: 'Leçons',       href: 'index.html#parcours' },
+  { label: 'Vocabulaire',  href: 'index.html#themes' },
+  { label: 'Aide-mémoire', href: 'articles-and-gender.html' }
 ];
 
 FR.currentFile = (location.pathname.split('/').pop() || 'index.html');
+
+/* Which nav item is "current" for this page? */
+FR.activeNavHref = function () {
+  const f = FR.currentFile;
+  if (f === '' || f === 'index.html') return 'index.html';
+  if (/^vocabulary-/.test(f)) return 'index.html#themes';
+  const mods = (FR.data && FR.data.modules) || [];
+  if (mods.some(m => m.href === f)) return 'index.html#parcours';
+  const hit = FR.nav.find(n => n.href === f);
+  return hit ? hit.href : null;
+};
 
 /* ---- Header / footer injection ---- */
 FR.renderShell = function () {
   const headerEl = document.getElementById('site-header');
   if (headerEl) {
+    const active = FR.activeNavHref();
     const links = FR.nav.map(n => {
-      const active = n.href === FR.currentFile ? ' aria-current="page"' : '';
-      return `<a href="${n.href}"${active}>${n.label}</a>`;
+      const cur = n.href === active ? ' aria-current="page"' : '';
+      return `<a href="${n.href}"${cur}>${n.label}</a>`;
     }).join('');
     headerEl.outerHTML = `
       <header class="site-header">

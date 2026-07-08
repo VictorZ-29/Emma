@@ -11,16 +11,26 @@ A small, beautiful, self-paced French course — built as a static site so it de
 ```
 french-for-emma/
 ├── index.html               ← the hub (path, progress, streak, phrase of the day)
-├── pronunciation.html       ← Lesson 01
-├── greetings.html           ← Lesson 02
-├── articles-and-gender.html ← Lesson 03 (with a quiz)
-├── vocabulary-food.html     ← Vocabulary deck (flashcards)
+├── pronunciation.html       ← Lesson 01 · How French really sounds
+├── greetings.html           ← Lesson 02 · Small talk & sounding natural
+├── about-you.html           ← Lesson 03 · Talking about yourself
+├── opinions.html            ← Lesson 04 · Opinions, tastes & (dis)agreeing
+├── the-past.html            ← Lesson 05 · Telling stories: the past
+├── making-plans.html        ← Lesson 06 · Making plans & suggestions
+├── feelings.html            ← Lesson 07 · Feelings & how you’re doing
+├── repair.html              ← Lesson 08 · When you’re lost in a conversation
+├── out-and-about.html       ← Lesson 09 · Out in the world (socially)
+├── pronouns.html            ← Lesson 10 · Pronouns so you don’t repeat yourself
+├── native-touches.html      ← Lesson 11 · Sounding more French
+├── politeness.html          ← Lesson 12 · Polite & hypothetical chunks
+├── articles-and-gender.html ← quick reference (gender & articles)
+├── vocabulary-*.html        ← flashcard decks: feelings, daily, food, plans, people
 ├── css/styles.css           ← the whole design system
 ├── js/
 │   ├── data.js              ← ALL content lives here (edit this to add lessons/words/quizzes)
 │   ├── shell.js             ← header, footer, nav, French text-to-speech
 │   ├── progress.js          ← completion + daily streak (localStorage)
-│   └── components.js         ← flashcards, quiz, accordion, hub rendering
+│   └── components.js        ← flashcards, quiz, dialogue, accordion, hub rendering
 └── assets/
     ├── audio/               ← drop your own voice recordings here (see below)
     └── img/
